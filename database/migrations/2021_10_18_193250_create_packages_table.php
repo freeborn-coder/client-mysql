@@ -15,7 +15,8 @@ class CreatePackagesTable extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('package_number');
+            $table->integer('game_id')->references('id')->on('games')->nullable();
+            $table->integer('package_number');
             $table->timestamps();
         });
     }
